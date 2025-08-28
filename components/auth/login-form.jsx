@@ -75,17 +75,17 @@ const LogInForm = () => {
   return (
     <div className="w-full py-10">
       <Link href="/dashboard" className="inline-block">
-        <SiteLogo className="h-10 w-10 2xl:w-14 2xl:h-14 text-primary" />
+        <Image src="/images/logo/logo.svg" alt="MJ Cargo Logo" className="h-10 w-10 2xl:w-14 2xl:h-14" />
       </Link>
-      <div className="2xl:mt-8 mt-6 2xl:text-3xl text-2xl font-bold text-default-900">
+  <div className="2xl:mt-8 mt-6 2xl:text-3xl text-2xl font-bold" style={{ color: '#E96114' }}>
         Hey, Hello 👋
       </div>
-      <div className="2xl:text-lg text-base text-default-600 2xl:mt-2 leading-6">
+  <div className="2xl:text-lg text-base 2xl:mt-2 leading-6" style={{ color: '#FF7A30' }}>
         Enter the information you entered while registering.
       </div>
       <form onSubmit={handleSubmit(onSubmit)} className="mt-5 2xl:mt-7">
         <div>
-          <Label htmlFor="email" className="mb-2 font-medium text-default-600">
+          <Label htmlFor="email" className="mb-2 font-medium" style={{ color: '#FF7A30' }}>
             Email{" "}
           </Label>
           <Input
@@ -100,13 +100,14 @@ const LogInForm = () => {
           />
         </div>
         {errors.email && (
-          <div className=" text-destructive mt-2">{errors.email.message}</div>
+          <div className=" mt-2" style={{ color: '#E96114' }}>{errors.email.message}</div>
         )}
 
         <div className="mt-3.5">
           <Label
             htmlFor="password"
-            className="mb-2 font-medium text-default-600"
+            className="mb-2 font-medium"
+            style={{ color: '#FF7A30' }}
           >
             Password{" "}
           </Label>
@@ -140,29 +141,12 @@ const LogInForm = () => {
           </div>
         </div>
         {errors.password && (
-          <div className=" text-destructive mt-2">
+          <div className=" mt-2" style={{ color: '#E96114' }}>
             {errors.password.message}
           </div>
         )}
 
-        <div className="mt-5  mb-8 flex flex-wrap gap-2">
-          <div className="flex-1 flex  items-center gap-1.5 ">
-            <Checkbox
-              size="sm"
-              className="border-default-300 mt-[1px]"
-              id="isRemebered"
-            />
-            <Label
-              htmlFor="isRemebered"
-              className="text-sm text-default-600 cursor-pointer whitespace-nowrap"
-            >
-              Remember me
-            </Label>
-          </div>
-          <Link href="/auth/forgot" className="flex-none text-sm text-primary">
-            Forget Password?
-          </Link>
-        </div>
+  {/* Removed Remember me and Forget Password for Google-only login */}
         <Button
           className="w-full"
           disabled={isPending}
@@ -177,7 +161,7 @@ const LogInForm = () => {
           type="button"
           size="icon"
           variant="outline"
-          className="rounded-full  border-default-300 hover:bg-transparent"
+          className="rounded-full border-[2px] border-[#E96114] hover:bg-[#09213C]"
           disabled={isPending}
           onClick={() =>
             signIn("google", {
@@ -187,45 +171,8 @@ const LogInForm = () => {
         >
           <Image src={googleIcon} alt="google" className="w-5 h-5" />
         </Button>
-        <Button
-          type="button"
-          size="icon"
-          variant="outline"
-          className="rounded-full  border-default-300 hover:bg-transparent"
-          disabled={isPending}
-          onClick={() =>
-            signIn("github", {
-              callbackUrl: "/dashboard",
-              redirect: false,
-            })
-          }
-        >
-          <Image src={GithubIcon} alt="google" className="w-5 h-5" />
-        </Button>
-        <Button
-          type="button"
-          size="icon"
-          variant="outline"
-          className="rounded-full border-default-300 hover:bg-transparent"
-        >
-          <Image src={facebook} alt="google" className="w-5 h-5" />
-        </Button>
-        <Button
-          type="button"
-          size="icon"
-          variant="outline"
-          className="rounded-full  border-default-300 hover:bg-transparent"
-        >
-          <Image src={twitter} alt="google" className="w-5 h-5" />
-        </Button>
       </div>
-      <div className="mt-5 2xl:mt-8 text-center text-base text-default-600">
-        Don't have an account?{" "}
-        <Link href="/auth/register" className="text-primary">
-          {" "}
-          Sign Up{" "}
-        </Link>
-      </div>
+  {/* Registration removed for Google-only login */}
     </div>
   );
 };

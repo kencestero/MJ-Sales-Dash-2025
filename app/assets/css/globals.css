@@ -104,21 +104,34 @@
 
 /*root css*/
 :root {
-  --background: hsl(0 0% 100%);
-  --foreground: hsl(222.2 84% 4.9%);
+  --mj-navy: #09213C;
+  --mj-orange: #E96114;
+  --mj-orange-2: #FF7A30;
+  --mj-sky: #2C97FF;
+  --mj-gray-light: #F5F6F7;
+  --mj-gray-dark: #3A3A3A;
+  --mj-white: #FFFFFF;
+  --mj-charcoal: #0D0D0D;
+  --mj-silver: #D1D5DB;
+  --mj-bg-image: url('/brand/mj-bg.jpg');
+  --background: var(--mj-charcoal);
+  --foreground: var(--mj-orange);
+  --muted: var(--mj-gray-light);
+  --muted-foreground: var(--mj-silver);
+  --popover: var(--mj-navy);
+  --popover-foreground: var(--mj-orange-2);
+  --card: var(--mj-navy);
+  --card-foreground: var(--mj-orange);
+  --border: var(--mj-silver);
+  --input: var(--mj-silver);
 
-  --muted: hsl(220 14.3% 95.9%);
-  --muted-foreground: hsl(215.4 16.3% 46.9%);
 
-  --popover: hsl(0 0% 100%);
-  --popover-foreground: hsl(222.2 84% 4.9%);
-
-  --card: hsl(0 0% 100%);
-  --card-foreground: hsl(222.2 84% 4.9%);
-
-  --border: hsl(220 13% 91%);
-  --input: hsl(220 13% 91%);
-
+body {
+  background: linear-gradient(135deg, rgba(9,33,60,0.95) 0%, rgba(13,13,13,0.98) 100%), var(--mj-bg-image);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: var(--mj-orange);
+}
   --primary-50: hsl(240 100% 98%);
   --primary-100: hsl(243 91% 95%);
   --primary-200: hsl(243 100% 92%);
