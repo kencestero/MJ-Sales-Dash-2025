@@ -2925,4 +2925,3 @@ export const menusConfig = {
     ],
   },
 };
-<Image src="/images/logo/logo.svg" alt="MJ Cargo Logo" width={120} height={40} />
