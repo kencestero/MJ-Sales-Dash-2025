@@ -3,7 +3,7 @@ export default {
   logo: (
     <span className=" inline-flex gap-2.5 items-center">
       <SiteLogo className="w-8 h-8 text-primary" />{" "}
-      <span className="  text-lg font-bold text-primary ">DashTail</span>
+      <span className="  text-lg font-bold text-primary ">SalesDash</span>
     </span>
   ),
   project: {
@@ -13,7 +13,7 @@ export default {
     key: "1.0-release",
     text: (
       <a href="/dashboard" target="_blank">
-        🎉 DashTail
+        🎉 SalesDash
       </a>
     ),
   },
@@ -38,7 +38,7 @@ export default {
   },
   useNextSeoProps() {
     return {
-      titleTemplate: "%s – DashTail",
+      titleTemplate: "%s – SalesDash",
     };
   },
 };

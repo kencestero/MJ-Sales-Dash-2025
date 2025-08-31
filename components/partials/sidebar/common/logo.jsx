@@ -1,7 +1,7 @@
-import { SiteLogo } from "@/components/svg";
 import { useSidebar } from "@/store";
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
 
 const SidebarLogo = ({ hovered }) => {
   const { sidebarType, setCollapsed, collapsed } = useSidebar();
@@ -10,10 +10,15 @@ const SidebarLogo = ({ hovered }) => {
       <div className=" flex items-center">
         <div className=" flex-1">
           <Link href="/dashboard" className="flex items-center gap-x-3">
-            <SiteLogo className="text-primary h-8 w-8" />
+            <Image
+              src="/images/logo/logo.svg"
+              alt="logo"
+              width={32}
+              height={32}
+            />
             {(!collapsed || hovered) && (
               <div className="flex-1  text-xl text-primary  font-semibold">
-                DashTail
+                MJ Cargo
               </div>
             )}
           </Link>
