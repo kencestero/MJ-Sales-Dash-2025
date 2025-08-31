@@ -55,14 +55,10 @@ export const menusConfig = {
           icon: Graph,
         },
         {
-          title: "Ecommerce",
-          href: "/ecommerce",
-          icon: Cart,
-        },
-        {
-          title: "Project ",
-          href: "/project",
-          icon: ClipBoard,
+          id: "crm",
+          title: "CRM",
+          icon: "ph:users-three",
+          href: "/dashboard/crm",
         },
       ],
     },
@@ -94,12 +90,6 @@ export const menusConfig = {
           title: "calendar",
           icon: Calendar,
           href: "/calendar",
-        },
-
-        {
-          title: "project",
-          icon: ClipBoard,
-          href: "/projects",
         },
       ],
     },
@@ -578,14 +568,6 @@ export const menusConfig = {
             },
 
             {
-              title: "Shop",
-              href: "/react-email/ecommerce/shop",
-            },
-            {
-              title: "Shopping Cart",
-              href: "/react-email/ecommerce/shopping-cart",
-            },
-            {
               title: "Corporate",
               href: "/react-email/corporate",
             },
@@ -993,14 +975,10 @@ export const menusConfig = {
             icon: Graph,
           },
           {
-            title: "Ecommerce",
-            href: "/ecommerce",
-            icon: Cart,
-          },
-          {
-            title: "project ",
-            href: "/project",
-            icon: ClipBoard,
+            id: "crm",
+            title: "CRM",
+            icon: "ph:users-three",
+            href: "/dashboard/crm",
           },
         ],
       },
@@ -1032,23 +1010,6 @@ export const menusConfig = {
             title: "calendar",
             icon: Calendar,
             href: "/calendar",
-          },
-
-          {
-            title: "project",
-            icon: ClipBoard,
-            nested: [
-              {
-                title: "project List",
-                icon: ClipBoard,
-                href: "/projects",
-              },
-              {
-                title: "project Details",
-                icon: ClipBoard,
-                href: "/projects/1/overview",
-              },
-            ],
           },
         ],
       },
@@ -1574,19 +1535,6 @@ export const menusConfig = {
                 ],
               },
               {
-                title: "Ecommerce",
-                child: [
-                  {
-                    title: "Shop",
-                    href: "/react-email/ecommerce-shop",
-                  },
-                  {
-                    title: "Shopping Cart",
-                    href: "/react-email/ecommerce-cart",
-                  },
-                ],
-              },
-              {
                 title: "Corporate",
                 href: "/react-email/corporate",
               },
@@ -1894,7 +1842,7 @@ export const menusConfig = {
             ],
           },
           {
-            title: "unovis",
+            title: "Unovis",
             icon: PretentionChartLine,
             nested: [
               {
@@ -1943,7 +1891,7 @@ export const menusConfig = {
           {
             title: "Unovis Map",
             icon: Map,
-            nested: [
+            multi_menu: [
               {
                 title: "Leaflet Map",
                 href: "/map-unovis-leaflet",
@@ -1987,33 +1935,18 @@ export const menusConfig = {
         child: [
           {
             title: "Level 1.1",
-            icon: Building,
             href: "#",
           },
           {
             title: "Level 2",
-            icon: Building2,
-            nested: [
+            multi_menu: [
               {
-                title: "Level-2.1",
+                title: "Level 2.1",
                 href: "#",
               },
               {
                 title: "Level 2.2",
                 href: "#",
-              },
-              {
-                title: "Level 3",
-                child: [
-                  {
-                    title: "Level 3.1",
-                    href: "#",
-                  },
-                  {
-                    title: "Level 3.2",
-                    href: "#",
-                  },
-                ],
               },
             ],
           },
@@ -2038,14 +1971,10 @@ export const menusConfig = {
             icon: Graph,
           },
           {
-            title: "Ecommerce",
-            href: "/ecommerce",
-            icon: Cart,
-          },
-          {
-            title: "Project ",
-            href: "/project",
-            icon: ClipBoard,
+            id: "crm",
+            title: "CRM",
+            icon: "ph:users-three",
+            href: "/dashboard/crm",
           },
         ],
       },
@@ -2077,12 +2006,6 @@ export const menusConfig = {
         title: "calendar",
         icon: Calendar,
         href: "/calendar",
-      },
-
-      {
-        title: "project",
-        icon: ClipBoard,
-        href: "/projects",
       },
 
       {
@@ -2327,19 +2250,6 @@ export const menusConfig = {
               {
                 title: "Verify Otp",
                 href: "/react-email/auth/verify-otp",
-              },
-            ],
-          },
-          {
-            title: "Ecommerce",
-            multi_menu: [
-              {
-                title: "Shop",
-                href: "/react-email/ecommerce/shop",
-              },
-              {
-                title: "Shopping Cart",
-                href: "/react-email/ecommerce/shopping-cart",
               },
             ],
           },
@@ -3015,3 +2925,4 @@ export const menusConfig = {
     ],
   },
 };
+<Image src="/images/logo/logo.svg" alt="MJ Cargo Logo" width={120} height={40} />
