@@ -40,3 +40,8 @@ NEXTAUTH_URL=http://localhost:3000
 NEXTAUTH_SECRET=
 GOOGLE_CLIENT_ID=
 GOOGLE_CLIENT_SECRET=
+
+
+Update Firebase SDK: Firebase is updated regularly. About once every few months, you should run pnpm up firebase to get the latest features, bug fixes, and security patches.
+Manage Security Rules: For services like Firestore (database) and Storage, you must configure security rules in your Firebase Console. These rules protect your data from unauthorized access. This is the most critical maintenance task.
+Monitor Usage and Billing: Keep an eye on your app's usage in the Firebase Console. Set up billing alerts to avoid any surprise costs as your app grows.
