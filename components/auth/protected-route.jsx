@@ -1,23 +1,24 @@
 "use client";
-import { useAuth } from "@/provider/auth.provider";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import LayoutLoader from "@/components/layout-loader";
 
 const ProtectedRoute = ({ children }) => {
-  const { user, loading } = useAuth();
+  const { data: session, status } = useSession();
   const router = useRouter();
 
   useEffect(() => {
-    if (!loading && !user) {
+    if (status === "unauthenticated") {
       router.push("/en/auth/login");
     }
-  }, [user, loading, router]);
+  }, [status, router]);
 
-  if (loading) {
+  if (status === "loading") {
     return <LayoutLoader />;
   }
-  if (!user) {
+  
+  if (status === "unauthenticated") {
     return null; // Or a redirect, but let the useEffect handle it
   }
 

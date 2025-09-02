@@ -7,6 +7,7 @@ import { ReactToaster } from "@/components/ui/toaster";
 import { Toaster } from "react-hot-toast";
 import { SonnToaster } from "@/components/ui/sonner";
 import { usePathname } from "next/navigation";
+import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({ subsets: ["latin"] });
 const Providers = ({ children }) => {
@@ -16,6 +17,31 @@ const Providers = ({ children }) => {
   if (location === "/") {
     return (
       <body className={cn("dash-tail-app ", inter.className)}>
+        <SessionProvider>
+          <ThemeProvider
+            attribute="class"
+            enableSystem={false}
+            defaultTheme="light"
+          >
+            <div className={cn("h-full  ")}>
+              {children}
+              <ReactToaster />
+            </div>
+            <Toaster />
+            <SonnToaster />
+          </ThemeProvider>
+        </SessionProvider>
+      </body>
+    );
+  }
+  return (
+    <body
+      className={cn("dash-tail-app ", inter.className, "theme-" + theme)}
+      style={{
+        "--radius": `${radius}rem`,
+      }}
+    >
+      <SessionProvider>
         <ThemeProvider
           attribute="class"
           enableSystem={false}
@@ -28,28 +54,7 @@ const Providers = ({ children }) => {
           <Toaster />
           <SonnToaster />
         </ThemeProvider>
-      </body>
-    );
-  }
-  return (
-    <body
-      className={cn("dash-tail-app ", inter.className, "theme-" + theme)}
-      style={{
-        "--radius": `${radius}rem`,
-      }}
-    >
-      <ThemeProvider
-        attribute="class"
-        enableSystem={false}
-        defaultTheme="light"
-      >
-        <div className={cn("h-full  ")}>
-          {children}
-          <ReactToaster />
-        </div>
-        <Toaster />
-        <SonnToaster />
-      </ThemeProvider>
+      </SessionProvider>
     </body>
   );
 };

@@ -181,7 +181,8 @@ const LogInForm = () => {
           disabled={isPending}
           onClick={() =>
             signIn("google", {
-              callbackUrl: "/dashboard",
+              callbackUrl: "/en/dashboard",
+              redirect: true,
             })
           }
         >
