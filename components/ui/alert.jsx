@@ -1,24 +1,4 @@
-"use client";
 
-export function Alert({ className = "", children, ...props }) {
-  return (
-    <div
-      role="alert"
-      className={`rounded-md border p-3 text-sm ${className}`}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-}
-
-export function AlertTitle({ className = "", children }) {
-  return <div className={`font-semibold mb-1 ${className}`}>{children}</div>;
-}
-
-export function AlertDescription({ className = "", children }) {
-  return <div className={className}>{children}</div>;
-}
 import * as React from "react";
 import { cva } from "class-variance-authority";
 import { Icon } from "@iconify/react";
