@@ -2,43 +2,42 @@ import { NextResponse } from "next/server";
 import { match } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
 
-let defaultLocale = "en";
-let locales = ["bn", "en", "ar"];
+// default + supported locales
+const defaultLocale = "en";
+const locales = ["en", "bn", "ar"];
 
-// Get the preferred locale, similar to above or using a library
-function getLocale(request) {
-  const acceptedLanguage = request.headers.get("accept-language") ?? undefined;
-  let headers = { "accept-language": acceptedLanguage };
-  let languages = new Negotiator({ headers }).languages();
+// parse best locale from Accept-Language
+function detectLocale(request) {
+  const accepted = request.headers.get("accept-language") ?? "";
+  const languages = new Negotiator({ headers: { "accept-language": accepted } }).languages();
+  return match(languages, locales, defaultLocale);
+}
 
-  return match(languages, locales, defaultLocale); // -> 'en-US'
+// pull locale prefix from path (/en, /ar, etc)
+function getPrefixLocale(pathname) {
+  const m = pathname.match(/^\/([a-zA-Z-]{2,5})(\/|$)/);
+  if (!m) return null;
+  const code = m[1].toLowerCase();
+  return locales.includes(code) ? code : null;
 }
 
 export function middleware(request) {
-  // Check if there is any supported locale in the pathname
-  const pathname = request.nextUrl.pathname;
+  const url = request.nextUrl;
+  const pathname = url.pathname;
 
-  const pathnameIsMissingLocale = locales.every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
-  );
-
-  // Redirect if there is no locale
-  if (pathnameIsMissingLocale) {
-    const locale = getLocale(request);
-
-    // e.g. incoming request is /products
-    // The new URL is now /en-US/products
-    return NextResponse.redirect(
-      new URL(`/${locale}/${pathname}`, request.url)
-    );
+  const prefixed = getPrefixLocale(pathname);
+  if (prefixed) {
+    // already has supported locale, continue
+    return NextResponse.next();
   }
+
+  // no prefix -> choose best and redirect
+  const best = detectLocale(request) || defaultLocale;
+  url.pathname = `/${best}${pathname}`;
+  return NextResponse.redirect(url);
 }
 
 export const config = {
-  matcher: [
-    // Skip all internal paths (_next, assets, api)
-    //"/((?!api|assets|.*\\..*|_next).*)",
-    "/((?!api|assets|docs|.*\\..*|_next).*)",
-    // Optional: only run on root (/) URL
-  ],
+  matcher: ["/((?!api|_next|assets|docs|.*\\..*).*)"]
 };
+

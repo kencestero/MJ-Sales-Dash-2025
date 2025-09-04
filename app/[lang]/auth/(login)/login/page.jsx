@@ -1,14 +1,15 @@
 "use client";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
-import background from "@/public/images/auth/line.png";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 import { Fragment, useState } from "react";
-import { Dialog,
+import {
+  Dialog,
   DialogHeader,
   DialogTitle,
-   DialogContent } from "@/components/ui/dialog";
+  DialogContent,
+} from "@/components/ui/dialog";
 import LogInForm from "@/components/auth/login-form";
 
 const LoginPage = () => {

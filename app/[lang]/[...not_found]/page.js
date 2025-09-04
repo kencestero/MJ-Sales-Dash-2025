@@ -1,9 +1,9 @@
 "use client"; // Error components must be Client Components
 
-import { Button } from "@/components/ui/button";
+import { Button } from "../../../components/ui/button";
 import Image from "next/image";
-import lightImage from "@/public/images/error/light-404.png";
-import darkImage from "@/public/images/error/dark-404.png";
+import lightImage from "../../../public/images/error/light-404.png";
+import darkImage from "../../../public/images/error/dark-404.png";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 

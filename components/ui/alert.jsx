@@ -1,7 +1,28 @@
+"use client";
+
+export function Alert({ className = "", children, ...props }) {
+  return (
+    <div
+      role="alert"
+      className={`rounded-md border p-3 text-sm ${className}`}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+}
+
+export function AlertTitle({ className = "", children }) {
+  return <div className={`font-semibold mb-1 ${className}`}>{children}</div>;
+}
+
+export function AlertDescription({ className = "", children }) {
+  return <div className={className}>{children}</div>;
+}
 import * as React from "react";
 import { cva } from "class-variance-authority";
 import { Icon } from "@iconify/react";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 const alertVariants = cva(
   "relative w-full rounded-lg  p-4  flex md:items-center items-start space-x-4 rtl:space-x-reverse ",

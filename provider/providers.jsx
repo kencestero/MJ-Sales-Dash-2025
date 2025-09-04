@@ -1,11 +1,18 @@
 "use client";
+import React from 'react';
+
+export default function Providers({ children }) {
+  // add Theme/Query/etc providers here later
+  return <>{children}</>;
+}
+"use client";
 import { Inter } from "next/font/google";
-import { useThemeStore } from "@/store";
+import { useThemeStore } from "../store";
 import { ThemeProvider } from "next-themes";
-import { cn } from "@/lib/utils";
-import { ReactToaster } from "@/components/ui/toaster";
+import { cn } from "../lib/utils";
+import { ReactToaster } from "../components/ui/toaster";
 import { Toaster } from "react-hot-toast";
-import { SonnToaster } from "@/components/ui/sonner";
+import { SonnToaster } from "../components/ui/sonner";
 import { usePathname } from "next/navigation";
 import { SessionProvider } from "next-auth/react";
 

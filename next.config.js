@@ -4,6 +4,8 @@ const withNextra = require("nextra")({
   theme: "nextra-theme-docs",
   themeConfig: "./theme.config.jsx",
 });
+const path = require("path");
+
 const nextConfig = {
   webpack(config) {
     // Grab the existing rule that handles SVG imports
@@ -29,6 +31,12 @@ const nextConfig = {
 
     // Modify the file loader rule to ignore *.svg, since we have it handled now.
     fileLoaderRule.exclude = /\.svg$/i;
+
+    // Ensure @ resolves to project root even in MDX/theme builds
+    config.resolve.alias = {
+      ...(config.resolve.alias || {}),
+      "@": path.resolve(__dirname),
+    };
 
     return config;
   },
